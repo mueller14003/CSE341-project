@@ -9,11 +9,28 @@
 <div class="jumbotron text-center">
   <div class="container">
     <h1><%= title %></h1>
-    <p>This is the placeholder for Team Activity 02</p>
+    <ul>
+    <% for (const user of users) { %>
+      <li><%= user %></li>
+    <% } %>
+    </ul>
   </div>
 </div>
 <div class="container">
-  
+  <form action="/ta02/addUser" method="POST">
+    <input type="text" name="username">
+    <button type="submit">Add User</button>
+  </form>
+  <% if (addError) { %>
+    <p>ERROR: Username <%= uname %> already taken. Please use a different username.</p>
+  <% } %>
+  <form action="/ta02/removeUser" method="POST">
+    <input type="text" name="username">
+    <button type="submit">Remove User</button>
+  </form>
+  <% if (removeError) { %>
+    <p>ERROR: Username <%= uname %> doesn't exist.</p>
+  <% } %>
 </div>
 
 
