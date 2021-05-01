@@ -3,10 +3,12 @@ const router = express.Router();
 
 let books = [{
     "title":"Book1",
+    "author":"Someone",
     "summary":"Book1 summary goes here."
 },
 {
     "title":"Book2",
+    "author":"Someone Else",
     "summary":"Book2 summary goes here."
 }];
 
@@ -24,6 +26,7 @@ router.post('/addBook',(req, res, next) => {
     console.log('Post request!');
     let book = {};
     book.title = req.body.title;
+    book.author = req.body.author;
     book.summary = req.body.summary;
     console.log(book);
     books.push(book);
