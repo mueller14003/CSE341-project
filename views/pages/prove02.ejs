@@ -14,6 +14,7 @@
     <div class="container">
       <% for (const book of books) { %>
         <h3><%= book.title %></h3>
+        <h4>By <%= book.author %></h4>
         <p><%= book.summary %></p><br>
       <% } %>
       <form action="/prove02/addBook" method="POST">
